@@ -43,12 +43,15 @@ async def on_message(message):
 
     print(f'Message {user_message} by {username} on {channel}')
 
+    if message.author == client.user:
+        print("")
+
     if message.author == 272519236927225858 or message.author == 324286034382815254:
         if decider == 2:
             await message.channel.send("I use linux")
 
 
-    elif decider == 0 or decider == 1:
+    elif decider == 0:
         formatted_message = "Hey look what I found " + \
             random.choice(items) + "\n" + \
             "https://cdn.discordapp.com/attachments/898004365716115467/1035701847102591048/Screenshot_20221028-174833_Discord.jpg"
@@ -68,11 +71,20 @@ async def on_message(message):
     elif "money" in message.content.lower():
         await message.channel.send("Ben will pay for it")
 
-    elif "linux" in message.content.lower():
+    elif "linux" in message.content.lower() and message.author != client.user:
         await message.channel.send("Windows is better")
 
-    elif "windows" in message.content.lower():
+    elif "windows" in message.content.lower() and message.author != client.user:
         await message.channel.send("Linux is better")
+
+    elif decider == 6:
+        await message.channel.send("https://media.discordapp.net/attachments/678825700978851860/818188972584468490/image0-18.gif")
+
+    elif "loctite" in message.content.lower():
+        await message.channel.send("yummy")
+
+    elif "glue" in message.content.lower():
+        await message.channel.send("yummy")
 
     elif '&ping' in message.content.lower():
         await message.channel.send("pong")
