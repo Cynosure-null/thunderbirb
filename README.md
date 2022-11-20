@@ -1,0 +1,3 @@
+# thunderbirb
+
+bad discord bobot
